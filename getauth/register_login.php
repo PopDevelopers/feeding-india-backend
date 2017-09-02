@@ -23,7 +23,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['user_typ
 
             if($action == 'login')
             {
-                $query = "SELECT `donor_id`,`password`,`name`,`phone_no_1`,`donor_type` FROM `donors` WHERE `email` = '$email';";
+                $query = "SELECT `donor_id`,`password`,`name`,`phone_no_1`,`donor_type`,`photo_url` FROM `donors` WHERE `email` = '$email';";
                 $result = mysqli_query($conn, $query);
 
                 if($result == false)
@@ -46,7 +46,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['user_typ
 
                         if($password_check_result == true)
                         {
-                            $response = array('response_code'=>1,'message'=>'Welcome back','id'=>$row['donor_id'],'name'=>$row['name'],'password_hash'=>$row['password'],'phone_no_1'=>$row['phone_no_1'],'donor_type'=>$row['donor_type']);
+                            $response = array('response_code'=>1,'message'=>'Welcome back','id'=>$row['donor_id'],'name'=>$row['name'],'password_hash'=>$row['password'],'phone_no_1'=>$row['phone_no_1'],'donor_type'=>$row['donor_type'],'photo_url'=>$row['photo_url']);
                         }
                         else
                         {
@@ -115,7 +115,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['user_typ
 
             if($action == 'login')
             {
-                $query = "SELECT `volunteer_id`,`password`,`name`,`phone_no_1` FROM `volunteers` WHERE `email` = '$email';";
+                $query = "SELECT `volunteer_id`,`password`,`name`,`phone_no_1`,`photo_url` FROM `volunteers` WHERE `email` = '$email';";
                 $result = mysqli_query($conn, $query);
 
                 if($result == false)
@@ -137,7 +137,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['user_typ
                         
                         if($password_check_result == true)
                         {
-                            $response = array('response_code'=>1,'message'=>'Welcome back','id'=>$row['volunteer_id'],'name'=>$row['name'],'password_hash'=>$row['password'],'phone_no_1'=>$row['phone_no_1']);
+                            $response = array('response_code'=>1,'message'=>'Welcome back','id'=>$row['volunteer_id'],'name'=>$row['name'],'password_hash'=>$row['password'],'phone_no_1'=>$row['phone_no_1'],'photo_url'=>$row['photo_url']);
                         }
                         else
                         {
